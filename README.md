@@ -28,10 +28,10 @@ When you’re done with the API, you can optionally enhance your project by addi
 ----
 
 Technology requirements:
-- NodeJS
-- Express
-- Typescript
-- TypeORM
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
+- [Typescript](https://www.typescriptlang.org/)
+- [TypeORM](https://typeorm.io/)
 
 Don't get hung up on concepts you might not know yet. Our analysis will be according to your level.
 
