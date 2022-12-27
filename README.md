@@ -1,3 +1,7 @@
+![tabella](https://jointabella.com/wp-content/uploads//2020/07/Puple_Heart_Logo.svg)
+
+&nbsp;
+
 ## Tabella Backend Challenge
 
 We'll evaluate everything you accomplish, and every part of your code will be reviewed, so don’t worry if you don’t fully complete it.
