@@ -1,5 +1,5 @@
 import { Joi, Segments } from 'celebrate';
-import { IBodyEmail, ISubmission } from "../interfaces";
+import { IBodyEmail, IBodySubmission } from "../interfaces";
 
 export const emailValidation = {
   [Segments.BODY]: Joi.object<IBodyEmail>().keys({
@@ -8,9 +8,7 @@ export const emailValidation = {
 };
 
 export const submissionValidation = {
-  [Segments.BODY]: Joi.object<ISubmission>().keys({
-    from: Joi.string().email().required(),
-    to: Joi.string().email().required(),
+  [Segments.BODY]: Joi.object<IBodySubmission>().keys({
     subject: Joi.string().required(),
     text: Joi.string().required(),
     html: Joi.string()
