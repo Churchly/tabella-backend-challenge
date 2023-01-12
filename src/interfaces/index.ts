@@ -1,4 +1,4 @@
-import IEmail from "./IEmail";
+import { IBodyEmail, IEmail } from "./IEmail";
 import ISubmission from "./ISubmission";
 
-export { IEmail, ISubmission };
+export { IBodyEmail, IEmail, ISubmission };
