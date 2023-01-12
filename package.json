@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "tsc",
-    "start": "node dist/src/server.js",
-    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
-    "typeorm:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/database/migrations",
-    "typeorm:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d src/database/migrations",
-    "typeorm:create": "ts-node ./node_modules/typeorm/cli.js migration:create -d src/database/migrations -n"
+    "start": "node dist/src/server.js"
   },
   "repository": {
     "type": "git",

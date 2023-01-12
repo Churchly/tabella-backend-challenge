@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
-import { Email, Submission } from './entities'
+import { Email, Submission } from '../database/entities'
 
 export const AppDataSource = new DataSource({
   type: 'mongodb',
