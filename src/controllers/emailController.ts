@@ -5,41 +5,59 @@ import client from '../database';
 export const emailCreate = async (req: Request, res: Response) => {
   const { address } = req.body;
 
-  // if (emailMemory.find(email => email.address === address)) {
-  //   return res.status(400).send('Email already exists');
-  // }
+  try {
+    const result = await client.db(process.env.DB_NAME).collection('emails').findOneBy({ address: address });
 
+    if (result) {
+      return res.status(400).send('Email already exists');
+    }
 
-  const email: IEmail = {
-    address,
-    isUnsubscribed: false
-  };
+    const email: IEmail = {
+      address,
+      isUnsubscribed: false
+    };
 
-  res.status(201).send(email);
+    await client.db(process.env.DB_NAME).collection('emails').insertOne(email);
+
+    res.status(201).send(email);
+  } catch (err) {
+    console.log(err)
+    return res.status(500).send('Internal server error');
+  }
 };
 
 export const emailList = async (req: Request, res: Response) => {
-  // if (emailMemory.length === 0) {
-  //   return res.status(404).send('No emails found');
-  // }
+  try {
+    const result = await client.db(process.env.DB_NAME).collection('emails').find().toArray();
 
-  // res.status(200).send(emailMemory);
+    if (result.length === 0) {
+      return res.status(404).send('No emails found');
+    }
+
+    return res.status(200).send(result);
+  } catch (err) {
+    console.log(err)
+    return res.status(500).send('Internal server error');
+  }
 };
 
 export const emailPatch = async (req: Request, res: Response) => {
-  // const email_id = req.params.id;
+  const email_id = req.params.id;
 
-  // const email = emailMemory.find(email => email.id === email_id);
+  try {
+    const result = await client.db(process.env.DB_NAME).collection('emails').findOneBy({ id: email_id });
 
-  // if (!email) {
-  //   return res.status(404).send('Email not found');
-  // }
+    if (!result) {
+      return res.status(404).send('Email not found');
+    } else if (result.isUnsubscribed) {
+      return res.status(400).send('Email is already unsubscribed');
+    }
 
-  // if (email.isUnsubscribed) {
-  //   return res.status(400).send('Email is already unsubscribed');
-  // }
+    await client.db(process.env.DB_NAME).collection('emails').updateOne({ id: email_id }, { $set: { isUnsubscribed: true } });
 
-  // email.isUnsubscribed = true;
-
-  // res.status(200).send();
+    return res.status(200).send('Ok');
+  } catch (err) {
+    console.log(err)
+    return res.status(500).send('Internal server error');
+  }
 };
