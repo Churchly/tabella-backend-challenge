@@ -1,2 +1,4 @@
-// import Email from "./Email"
-// import Submission from "./Submission"
+import Email from './Email';
+import Submission from './Submission';
+
+export { Email, Submission };
