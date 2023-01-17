@@ -1,0 +1,38 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "![tabella](https://jointabella.com/wp-content/uploads//2020/07/Puple_Heart_Logo.svg)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasmoraismt/tabella-backend-challenge.git"
+  },
+  "keywords": [],
+  "author": "Lucas de Morais M Tavares <lucasmoraismt@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasmoraismt/tabella-backend-challenge/issues"
+  },
+  "homepage": "https://github.com/lucasmoraismt/tabella-backend-challenge#readme",
+  "dependencies": {
+    "celebrate": "^15.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^3.7.3",
+    "nodemailer": "^6.9.0",
+    "typeorm": "^0.3.11"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.18",
+    "@types/nodemailer": "^6.4.7",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}
